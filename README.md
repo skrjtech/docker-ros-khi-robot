@@ -6,6 +6,6 @@
 ```
 . DockerFiles/dockerInstall.sh
 ```
-dockerにグループID付与するためにインストールと週にパスワードが求められる. 
+パスワードを求められたらパスワードを入力
 
-## 1. Docker 
+## 1. Docker Rosイメージの作成
