@@ -32,7 +32,7 @@ xhost +local:$USER
 `Authorization required, but no authorization protocol specified` \
 `qt.qpa.screen: QXcbConnection: Could not connect to display :0.0` \
 `Could not connect to any X display.` 
-### GUIの表示設定後に環境の立ち上げを行う
+### GUIの表示設定後に環境の立ち上げ
 ```
 docker run --rm                                 \
             -it                                 \
@@ -46,7 +46,7 @@ docker run --rm                                 \
             -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
             ros/melodic:cpu
 ```
-### 環境が立ち上がったらgazeboとrvizの起動の確認を行う
+### 環境が立ち上がったらgazeboとrvizの起動の確認
 ### いくつかのステップを踏んで動作をさしていく
 tmuxの立ち上げ
 ```
