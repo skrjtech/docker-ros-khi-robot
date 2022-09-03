@@ -7,11 +7,11 @@
 . DockerFiles/dockerInstall.sh
 ```
 パスワードを求められたらパスワードを入力
-* パスワードはパッケージのインストールとdockerをグループ権限に追加するために必要
+* パスワードはパッケージのインストールとグループ権限をdockerに追加するために必要
 ## 1. Docker Rosイメージの作成
 Ros環境構築の為にDockerfileからイメージ作成していく
 ```
-docker build -t ros/melodic:cpu DockerFiles/Dockerfile
+docker build -t ros/melodic:cpu DockerFiles
 ```
 作成したイメージの確認
 ```
