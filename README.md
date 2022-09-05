@@ -76,4 +76,17 @@ gazeboの起動もrvizの立ち上げと同様に行う
     exportに`SVGA_VGPU10=0`を追加することで表示が可能になった \
     ホスト側とコンテナ側に追加
 * など...
-    
+
+# 構築環境・途中構築環境のコミット
+環境内で何かしらの構築が終わった場合(パッケージのインストール, など), 作業のやり直しを防げます
+```
+docker ps -a
+```
+|CONTAINER ID|IMAGE|COMMAND|CREATED|STATUS|PORTS|NAMES|
+|---|---|---|---|---|---|---|
+|1a057534c395|ros/melodic:cpu|"/bin/bash"|0 minutes ago|Up 0 minutes||gifted_shaw|
+
+$ `docker commit CONTAINERID IMAGE` 
+```
+docker commit 1a057534c395 ros/melodic:cpu-step1
+```
