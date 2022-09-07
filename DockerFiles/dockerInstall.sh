@@ -68,7 +68,7 @@ DOCKER_INSTALL=false
 while getopts n OPT
 do
     case $OPT in 
-        -n) DOCKER_INSTALL=TRUE;;
+        -n) DOCKER_INSTALL=true;;
         *)  main "20.10.17"
             ;;
     esac
