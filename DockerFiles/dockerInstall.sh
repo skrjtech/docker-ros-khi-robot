@@ -1,13 +1,6 @@
 #!/bin/bash
 
 function dockerRipository() {
-    # 必要なファイルをインストール
-    sudo apt install -y                     \\
-                        curl                \\
-                        gnupg-agent         \\
-                        ca-certificates     \\
-                        apt-transport-https \\
-                        software-properties-common
     # リポジトリのセット
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
     # sudo apt-key fingerprint 0EBFCD88
@@ -72,6 +65,14 @@ do
             ;;
     esac
 done
+
+# 必要なファイルをインストール
+sudo apt install -y                     \\
+                    curl                \\
+                    gnupg-agent         \\
+                    ca-certificates     \\
+                    apt-transport-https \\
+                    software-properties-common
 
 if $DOCKER_INSTALL; then
     # 最新のバージョンでダウンロード
