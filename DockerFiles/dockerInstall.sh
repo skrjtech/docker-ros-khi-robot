@@ -56,7 +56,7 @@ function dockerVer() {
 
 # オプションの解析
 # DOCKER_INSTALL: optin -n で最新の docker をインストール
-DOCKER_INSTALL=false
+DOCKER_INSTALL=true
 while getopts n OPT
 do
     case $OPT in 
