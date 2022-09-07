@@ -74,6 +74,7 @@ sudo apt install -y curl                \\
 
 if $DOCKER_INSTALL; then
     # 最新のバージョンでダウンロード
+    echo "NEW VERSION";
     dockerRipository;
     dockerNewVersionGet;
     DockerGroupIdSet;
