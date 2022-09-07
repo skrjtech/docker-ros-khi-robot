@@ -39,7 +39,7 @@ function packageCheck() {
 }
 
 
-main() {
+function dockerVer() {
     DOCKER_INSTALL_TARGET_VERSION=$1
     # インストール済みをチェック
     if `packageCheck docker`; then
@@ -64,17 +64,23 @@ main() {
 
 # オプションの解析
 # DOCKER_INSTALL: optin -n で最新の docker をインストール
+DOCKER_INSTALL=false
 while getopts n OPT
 do
     case $OPT in 
-        -n) 
-            # 最新のバージョンでダウンロード
-            dockerRipository
-            dockerNewVersionGet
-            DockerGroupIdSet
-            exit 0
-            ;;
+        -n) DOCKER_INSTALL=TRUE;;
         *)  main "20.10.17"
             ;;
     esac
 done
+
+if $DOCKER_INSTALL; then
+    # 最新のバージョンでダウンロード
+    dockerRipository
+    dockerNewVersionGet
+    DockerGroupIdSet
+else 
+    dockerVer "20.10.17"
+fi
+
+exit 0
