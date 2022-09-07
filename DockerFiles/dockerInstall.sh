@@ -66,8 +66,7 @@ do
 done
 
 # 必要なファイルをインストール
-sudo apt install -y                     \\
-                    curl                \\
+sudo apt install -y curl                \\
                     gnupg-agent         \\
                     ca-certificates     \\
                     apt-transport-https \\
