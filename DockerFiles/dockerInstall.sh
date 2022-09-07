@@ -9,12 +9,12 @@ function dockerRipository() {
 
 function dockerNewVersionGet() {
     sudo apt update
-    sudo apt install docker-ce
+    sudo apt install -y docker-ce
 }
 
 function dockerVersionInstall() {
     sudo apt update
-    sudo apt install -y docker-engine="$1~xenial"
+    sudo apt install -y docker-ce=$1
 }
 
 function DockerGroupIdSet() {
@@ -56,7 +56,7 @@ function dockerVer() {
 
 # オプションの解析
 # DOCKER_INSTALL: optin -n で最新の docker をインストール
-DOCKER_INSTALL=true
+DOCKER_INSTALL=false
 while getopts n OPT
 do
     case $OPT in 
@@ -74,7 +74,6 @@ sudo apt install -y curl                \\
 
 if $DOCKER_INSTALL; then
     # 最新のバージョンでダウンロード
-    echo "NEW VERSION";
     dockerRipository;
     dockerNewVersionGet;
     DockerGroupIdSet;
