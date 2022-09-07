@@ -1,5 +1,4 @@
 #!/bin/bash
-set -e
 
 function dockerRipository() {
     # 必要なファイルをインストール
@@ -52,13 +51,13 @@ function dockerVer() {
         if [ DOCKER_VERSION = DOCKER_INSTALL_TARGET_VERSION ]; then
             exit 0;
         else 
-            sudo apt remove docker docker-engine docker.io docker*
+            sudo apt remove docker docker-engine docker.io docker*;
             
         fi
     else 
-        dockerRipository
-        dockerVersionInstall $DOCKER_INSTALL_TARGET_VERSION
-        DockerGroupIdSet
+        dockerRipository;
+        dockerVersionInstall $DOCKER_INSTALL_TARGET_VERSION;
+        DockerGroupIdSet;
     fi
 }
 
@@ -76,11 +75,11 @@ done
 
 if $DOCKER_INSTALL; then
     # 最新のバージョンでダウンロード
-    dockerRipository
-    dockerNewVersionGet
-    DockerGroupIdSet
+    dockerRipository;
+    dockerNewVersionGet;
+    DockerGroupIdSet;
 else 
-    dockerVer "20.10.17"
+    dockerVer "20.10.17";
 fi
 
 exit 0
