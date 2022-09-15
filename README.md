@@ -34,6 +34,10 @@ xhost +local:$USER
 `Could not connect to any X display.` 
 ### GUIの表示設定後に環境の立ち上げ
 ```
+. DockerFiles/RosEnvRun.sh
+```
+以下の内容がDockerFiles/RosEnvRun.shに記述してある
+```
 docker run --rm                                 \
             -it                                 \
             --net=host                          \
