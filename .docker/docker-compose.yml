@@ -1,0 +1,15 @@
+version: '3.9'
+services:
+  melodic:
+    tty: true
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    image: ros/melodic:latest
+    container_name: melodic_container
+    restart: always
+    environment:
+      - DISPLAY=$DISPLAY
+      - QT_X11_NO_MITSHM=1
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
