@@ -12,4 +12,6 @@ RUN set -x \
     && DEBIAN_FRONTEND=noninteractive make ros1_melodic_install \
     && rm -rf /etc/ros/rosdep/sources.list.d/20-default.list \
     $$ set +x
+# Check GUI Apps
+RUN apt install -y x11-apps
 CMD [ "/bin/bash"]
