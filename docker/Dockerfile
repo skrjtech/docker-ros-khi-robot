@@ -4,7 +4,7 @@ RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 RUN apt update && apt -y upgrade
 RUN apt-get update && apt -y upgrade
 RUN apt install -y software-properties-common
-RUN apt install -y sudo curl wget git make
+RUN apt install -y sudo curl wget git make tmux
 RUN set -x \
     && git clone https://github.com/skrjtech/ros-installer.git \
     && cd ros-installer \
