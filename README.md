@@ -1,28 +1,32 @@
 # Docker Ros khi-robot 
 ## NEDO特別講座 
-NEDO特別講座で扱う川崎重工株式会社公開のパッケージkhi-robotを動かす為の環境づくり提供します.
+NEDO特別講座で扱う川崎重工株式会社公開のパッケージkhi-robotを動かす為の環境づくりを提供します.
 
 # Docker Engine Install
-もしDocker Engineがインストールされていなければ, こちらからインストールしてください.\
-また, 講座内で扱うDocker Engineのバージョンがありますので, バージョンを指定してDocker Engineをインストールして行きま.
+講座内容に合わせる為に指定のバージョンでDocker Engineをインストールすることができます. \
+もし既にインストールされている場合は, 簡単に指定のバージョンで再インストールができるようにスクリプトを用意しています. \
+※ Ubuntu 18.04
 ```
-. 
+. installer/docker.sh 5:20.10.21~3-0~ubuntu-bionic
 ```
-パスワードを求められたらパスワードを入力
-* パスワードはパッケージのインストールとグループ権限をdockerに追加するために必要
-## 1. Docker Rosイメージの作成
-Ros環境構築の為にDockerfileからイメージ作成していく
+※ Ubuntu OS が異なる場合 (18.04 ~ 22.10まで確認済み)
 ```
-docker build -t ros/melodic:cpu DockerFiles
+. installer/docker.sh 5:20.10.21~3-0~ubuntu-$(lsb_release -sc)
 ```
-作成したイメージの確認
+# Docker Docker Ros環境イメージの構築
+Ros環境イメージを構築するDockerfileをビルドします. /
+ビルドの際にDocker Composeでymlファイルを経由してビルドします.
+```
+docker compose -f docker/docker-compose.yml build
+```
+しばらく経つとビルドが終わり, 下記の様に環境イメージが作成される.
 ```
 docker images
 ```
 |REPOSITORY|TAG|IMAGE ID|CREATED|SIZE|
 |:---|:---|:---|:---|:---|
-|ros/melodic|cpu|XXXXXXXX|X minutes ago|XXXXGB|
-上記と似たような結果が出たら成功
+|ros/melodic|latest|XXXXXXXX|X minutes ago|XXXXGB|
+
 ## 2. Docker Ros環境の立ち上げ
 ### gazeboやrvizを使うこと想定するのでGUIの表示ができるように前もって次の動作を行う
 ```
