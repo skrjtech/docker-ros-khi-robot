@@ -1,5 +1,6 @@
-# docker-ros 
-### スムーズな環境づくりを目的にDockerに挑戦!!
+# Docker Ros khi-robot 
+## NEDO特別講座 
+NEDO特別講座で扱う川崎重工株式会社公開のパッケージkhi-robotを動かす為の環境づくり提供します.
 
 ## 0. Dockerのインストール
 
