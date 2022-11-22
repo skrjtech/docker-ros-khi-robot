@@ -14,7 +14,7 @@ NEDO特別講座で扱う川崎重工株式会社公開のパッケージkhi-rob
 . installer/docker.sh 5:20.10.21~3-0~ubuntu-$(lsb_release -sc)
 ```
 # Docker Engine Ros環境イメージの構築
-Ros環境イメージを構築するDockerfileをビルドします. /
+Ros環境イメージを構築するDockerfileをビルドします. \
 ビルドの際にDocker Composeでymlファイルを経由してビルドします.
 ```
 docker compose -f docker/docker-compose.yml build
@@ -27,35 +27,24 @@ docker images
 |:---|:---|:---|:---|:---|
 |ros/melodic|latest|XXXXXXXX|X minutes ago|XXXXGB|
 
-## 2. Docker Ros環境の立ち上げ
-### gazeboやrvizを使うこと想定するのでGUIの表示ができるように前もって次の動作を行う
+## Docker Engine Ros環境イメージの起動
+Ros環境イメージの起動には, Docker Composeでymlファイルを指定して仮想環境
+を起動します. \
+Docker Composeでの起動の際には, バックグランドオプションの'-d'を指定して起動します.
 ```
-xhost +local:$USER
+docker compose -f docker/docker-compose.yml up -d
 ```
-### 上記の動作を行わないと下記の様な注意が表示されます 
-`venv@pc:~$ rosrun rviz rviz` \
+仮想環境内でgazebo/rvizその他のGUI系アプリを使用していく為, ホスト側で仮想環境内のアプリを表示する許可を行います.
+```
+xhost +local:
+```
+上記の動作を行わないと下記の様な注意が表示されます 
+`root@virtualenv:~$ rosrun rviz rviz` \
 `QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-venv'` \
 `Authorization required, but no authorization protocol specified` \
 `qt.qpa.screen: QXcbConnection: Could not connect to display :0.0` \
 `Could not connect to any X display.` 
-### GUIの表示設定後に環境の立ち上げ
-```
-. DockerFiles/RosEnvRun.sh
-```
-以下の内容がDockerFiles/RosEnvRun.shに記述してある
-```
-docker run --rm                                 \
-            -it                                 \
-            --net=host                          \
-            --ipc=host                          \
-            --privileged                        \
-            -e ROS_IP=127.0.0.1                 \
-            -e DISPLAY=$DISPLAY                 \
-            --env="QT_X11_NO_MITSHM=1"          \
-            --device=/dev/dri:/dev/dri          \
-            -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
-            ros/melodic:cpu
-```
+
 ### 環境が立ち上がったらgazeboとrvizの起動の確認
 ### いくつかのステップを踏んで動作をさしていく
 tmuxの立ち上げ
@@ -100,3 +89,5 @@ $ `docker commit CONTAINERID IMAGE`
 ```
 docker commit 1a057534c395 ros/melodic:cpu-step1
 ```
+
+# エラー発生・原因・対処について
