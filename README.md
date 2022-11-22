@@ -4,7 +4,7 @@ NEDO特別講座で扱う川崎重工株式会社公開のパッケージkhi-rob
 
 # Docker Engine Install
 講座内容に合わせる為に指定のバージョンでDocker Engineをインストールすることができます. \
-もし既にインストールされている場合は, 簡単に指定のバージョンで再インストールができるようにスクリプトを用意しています. \
+もし既にインストールされている場合は, 指定のバージョンで簡単に再インストールができるようにスクリプトを用意しています. \
 ※ Ubuntu 18.04
 ```
 . installer/docker.sh 5:20.10.21~3-0~ubuntu-bionic
@@ -13,7 +13,7 @@ NEDO特別講座で扱う川崎重工株式会社公開のパッケージkhi-rob
 ```
 . installer/docker.sh 5:20.10.21~3-0~ubuntu-$(lsb_release -sc)
 ```
-# Docker Docker Ros環境イメージの構築
+# Docker Engine Ros環境イメージの構築
 Ros環境イメージを構築するDockerfileをビルドします. /
 ビルドの際にDocker Composeでymlファイルを経由してビルドします.
 ```
