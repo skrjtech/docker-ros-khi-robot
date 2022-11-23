@@ -7,7 +7,7 @@ RUN apt install -y software-properties-common
 RUN apt install -y sudo curl wget git make tmux
 RUN set -x \
     && git clone https://github.com/skrjtech/ros-installer.git \
-    && cd ros-installer \
+    && cd ros-installer/installer \
     && sed -i 's/sudo //g' Ros1/melodic/melodic_version.sh \
     && DEBIAN_FRONTEND=noninteractive make ros1_melodic_install \
     && rm -rf /etc/ros/rosdep/sources.list.d/20-default.list \
