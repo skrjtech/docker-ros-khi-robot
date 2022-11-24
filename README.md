@@ -5,7 +5,7 @@ NEDO特別講座で扱う川崎重工株式会社公開のパッケージkhi-rob
 # Docker Engine Install
 講座内容に合わせる為に指定のバージョンでDocker Engineをインストールすることができます. \
 もし既にインストールされている場合は, 指定のバージョンで簡単に再インストールができるようにスクリプトを用意しています. \
-注意) Docker Engineの再インストール際にイメージファイルが削除されます．
+注意) Docker Engineの再インストールの際にイメージファイルが削除されます．
 ※ Ubuntu 18.04
 ```
 . installer/docker.sh 5:20.10.21~3-0~ubuntu-bionic
