@@ -38,7 +38,7 @@ docker compose -f docker/docker-compose.yml up -d
 ```
 xhost +local:
 ```
-上記の動作を行わないと下記の様な注意が表示されます 
+上記の動作を行わないと下記の様な注意が表示されます \
 `root@virtualenv:~$ rosrun rviz rviz` \
 `QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-venv'` \
 `Authorization required, but no authorization protocol specified` \
