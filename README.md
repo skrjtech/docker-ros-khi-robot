@@ -87,7 +87,7 @@ docker ps -a
 ```
 |CONTAINER ID|IMAGE|COMMAND|CREATED|STATUS|PORTS|NAMES|
 |---|---|---|---|---|---|---|
-|1a057534c395|ros/melodic:cpu|"/bin/bash"|0 minutes ago|Up 0 minutes||gifted_shaw|
+|1a057534c395|ros/melodic:latest|"/bin/bash"|0 minutes ago|Up 0 minutes||gifted_shaw|
 
 $ `docker commit CONTAINERID IMAGE` 
 ```
