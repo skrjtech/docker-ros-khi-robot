@@ -12,6 +12,9 @@ RUN set -x \
     && DEBIAN_FRONTEND=noninteractive make ros1_melodic_install \
     && rm -rf /etc/ros/rosdep/sources.list.d/20-default.list \
     $$ set +x
+# catkin latest
+RUN apt install -y python-catkin-tools
+RUN echo 'export QT_X11_NO_MITSHM=1' >> ~/.bashrc
 # Check GUI Apps
 RUN apt install -y x11-apps
 CMD [ "/bin/bash"]

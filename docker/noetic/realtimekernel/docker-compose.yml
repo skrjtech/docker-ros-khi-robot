@@ -4,12 +4,11 @@ services:
     build: 
       context: .
       dockerfile: Dockerfile
-    image: ros/melodic:latest
+    image: skrjtech/khi_robot:noetic-rt
     container_name: melodic_container
     tty: true
     restart: always
     environment:
       - DISPLAY=$DISPLAY
-      - QT_X11_NO_MITSHM=1
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix:rw

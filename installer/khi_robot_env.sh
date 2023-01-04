@@ -1,4 +1,4 @@
-
+#!/bin/bash
 sudo rosdep init
 rosdep update
 
@@ -13,6 +13,6 @@ cd ~/ws/src
 git clone https://github.com/Kawasaki-Robotics/khi_robot.git
 cd ~/ws
 rosdep install -y -r --from-paths src --ignore-src
-source ~/.bashrckhi_robot
+source ~/.bashrc
 catkin build 
 source ~/.bashrc

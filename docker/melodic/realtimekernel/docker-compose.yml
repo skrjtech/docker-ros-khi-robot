@@ -1,0 +1,17 @@
+version: '3.9'
+services:
+  melodic:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    image: skrjtech/khi_robot:melodic-rt
+    container_name: melodic_container
+    tty: true
+    restart: always
+    environment:
+      - DISPLAY=$DISPLAY
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+    cpu_rt_runtime: 512000
+    cpu_rt_period: 99
+    ulimits:

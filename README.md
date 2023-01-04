@@ -62,6 +62,14 @@ roscore
 rosrun rviz rviz
 ```
 gazeboの起動もrvizの立ち上げと同様に行う
+
+# Realtime Kernelのセットアップ
+次のリンクから最新のパッチファイルをダウンロード  
+[パッチファイル](https://mirrors.edge.kernel.org/pub/linux/kernel/projects/rt/6.1/)
+```
+wget https://mirrors.edge.kernel.org/pub/linux/kernel/projects/rt/6.1/patch-6.1-rc7-rt5.patch.gz
+```
+
 ## 注意 GUIが正常に起動しない時の対処
 計算機の環境, ホスト側がDockerの仮想環境に影響を与えている場合があることでしょう\
 以下の例で
